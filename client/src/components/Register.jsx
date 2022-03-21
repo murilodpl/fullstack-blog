@@ -1,6 +1,7 @@
 import { useState } from "react"
+import '../css/register.css'
 
-export default function Register() {
+export default function Register(props) {
     // Variable
     const [formData, setFormData] = useState({
         email: "",
@@ -38,10 +39,15 @@ export default function Register() {
     console.log(formData)
 
     return (
-        <form name="registerForm" id="registerForm">
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="E-mail" required />
-            <input type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Password" required />
-            <input type="submit" onClick={registerUser} value="Register" />
-        </form>
+        <div>
+            <form name="registerForm" id="registerForm">
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
+                <input type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                <div>
+                    <input type="submit" onClick={registerUser} value="Register" />
+                </div>
+            </form>
+            <button onClick={props.handleTransition}>Logar</button>
+        </div>
     )
 }
