@@ -18,20 +18,20 @@ Backend, com a integração do login e do registro.
 
 ## Instructions
 
-Install dependencies
+Install dependencies (client/server)
 
 ```bash
 npm i
 ```
 
-Run development server
+Run development mod and server
 
 Frontend
 ```bash
 npm run dev
 ```
 
-Frontend
+Backend
 ```bash
-node server/index.js
+node index.js
 ```
