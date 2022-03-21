@@ -25,7 +25,7 @@ const createUser = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(201).send(`User added with success!`)
+        response.status(201).send({ res: 'User added with success!' })
     })
 }
 
@@ -36,7 +36,7 @@ const deleteUser = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(200).send(`User deleted with ID: ${id}`)
+        response.status(200).send({ res: `User deleted with ID: ${id}` })
     })
 }
 
