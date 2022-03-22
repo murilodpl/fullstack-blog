@@ -9,13 +9,14 @@ Backend, com a integração do login e do registro.
 ### Frontend
 -   ReactJS
 -   Vite
+-   Axios
 -   Tailwind CSS
 
 ### Backend
 -   Node
 -   ExpressJS
--   Axios
 -   PostgreSQL
+-   Axios
 -   Jest
 
 ## Instructions
