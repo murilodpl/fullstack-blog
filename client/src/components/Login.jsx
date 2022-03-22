@@ -1,4 +1,5 @@
 import { useState } from "react"
+import api from '../services/api'
 
 export default function Login(props) {
     // Variable
@@ -19,6 +20,12 @@ export default function Login(props) {
 
     function loginUser(e) {
         e.preventDefault()
+
+        if (formData.email == "" || formData.password == "") return console.log('Fill in all required fields')
+
+        api.get("/login", formData)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
     }
 
     // Logs

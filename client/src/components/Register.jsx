@@ -1,4 +1,5 @@
 import { useState } from "react"
+import api from "../services/api"
 
 export default function Register(props) {
     // Variable
@@ -20,16 +21,10 @@ export default function Register(props) {
     function registerUser(e) {
         e.preventDefault()
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-            redirect: 'follow'
-        }
+        if (formData.email == "" || formData.password == "") return console.log('Fill in all required fields')
 
-        fetch('http://localhost:8080/users', requestOptions)
-            .then(res => res.json())
-            .then(data => console.log(data))
+        api.post("/users", formData)
+            .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
 
