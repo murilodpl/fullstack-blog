@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true, }))
 
-app.use('/', require('./utils/routes'))
+app.use('/', require('./src/route/usersRoute'))
 
 // Listen
 app.listen(port, () => {
