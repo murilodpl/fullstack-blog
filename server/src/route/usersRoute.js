@@ -15,7 +15,7 @@ router.post('/users', async (req, res, next) => {
     const user = req.body
     try {
         const newUser = await usersService.saveUser(user)
-        res.status(201).json(newUser)
+        res.status(201).json({ status: 201, ...newUser })
     } catch (e) {
         next(e)
     }
