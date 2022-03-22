@@ -23,7 +23,7 @@ const createUser = (request, response) => {
 
     pool.query('INSERT INTO users (email, password) VALUES ($1, $2)', [email, password], (error, results) => {
         if (error) {
-            throw error
+            response.status(400).send(error)
         }
         response.status(201).send({ res: 'User added with success!' })
     })
