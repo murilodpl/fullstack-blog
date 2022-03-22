@@ -7,4 +7,10 @@ router.get('/users', async (req, res) => {
     res.json(users)
 })
 
+router.post('/users', async (req, res) => {
+    const user = req.body
+    const newUser = await usersService.saveUser(user)
+    res.json(newUser)
+})
+
 module.exports = router;
