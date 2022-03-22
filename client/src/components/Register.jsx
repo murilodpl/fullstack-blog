@@ -27,7 +27,6 @@ export default function Register(props) {
             body: JSON.stringify(formData),
             redirect: 'follow'
         }
-        console.log(requestOptions)
 
         fetch('http://localhost:8080/users', requestOptions)
             .then(res => res.json())
@@ -36,7 +35,7 @@ export default function Register(props) {
     }
 
     // Logs
-    console.log(formData)
+    // console.log(formData)
 
     return (
         <div>
