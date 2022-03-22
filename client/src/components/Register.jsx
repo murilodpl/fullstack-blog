@@ -1,5 +1,4 @@
 import { useState } from "react"
-import '../css/register.css'
 
 export default function Register(props) {
     // Variable
@@ -39,14 +38,16 @@ export default function Register(props) {
 
     return (
         <div>
+            <h1>Criar Conta</h1>
+
             <form name="registerForm" id="registerForm">
                 <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
                 <input type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
-                <div>
-                    <input type="submit" onClick={registerUser} value="Register" />
+                <div className="btnDiv">
+                    <span>Já possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
+                    <input type="submit" onClick={registerUser} value="Registrar" />
                 </div>
             </form>
-            <button onClick={props.handleTransition}>Logar</button>
         </div>
     )
 }
