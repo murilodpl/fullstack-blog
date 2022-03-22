@@ -16,6 +16,7 @@ Backend, com a integração do login e do registro.
 -   ExpressJS
 -   Axios
 -   PostgreSQL
+-   Jest
 
 ## Instructions
 
