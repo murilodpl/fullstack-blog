@@ -9,8 +9,16 @@ router.get('/users', async (req, res) => {
 
 router.post('/users', async (req, res) => {
     const user = req.body
-    const newUser = await usersService.saveUser(user)
-    res.json(newUser)
+    try {
+        const newUser = await usersService.saveUser(user)
+        res.status(201).json(newUser)
+    } catch (e) {
+        if (e.message === 'User already exists') {
+            res.status(409).send(e.message)
+        } else {
+            res.status(500).send(e.message)
+        }
+    }
 })
 
 module.exports = router;

@@ -4,7 +4,9 @@ exports.getUsers = () => {
     return usersData.getUsers();
 }
 
-exports.saveUser = (user) => {
+exports.saveUser = async (user) => {
+    const existingUser = await usersData.getPostByEmail(user.email)
+    if (existingUser) throw new Error('User already exists')
     return usersData.saveUser(user)
 }
 
