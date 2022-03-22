@@ -11,6 +11,9 @@ app.use((error, req, res, next) => {
     if (error.message === 'User already exists') {
         return res.status(409).send({ status: 409, error: error.message })
     }
+    if (error.message === 'Email or password wrong') {
+        return res.status(403).send({ status: 403, error: error.message })
+    }
     res.status(500).send({ status: 500, error: error.message })
 })
 

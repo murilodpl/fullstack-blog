@@ -4,8 +4,16 @@ exports.getUsers = () => {
     return database.query('select * from users')
 }
 
-exports.getPostByEmail = (email) => {
+exports.getUserByEmail = (email) => {
     return database.oneOrNone('select * from users where email = $1', [email])
+}
+
+exports.loginUserCheck = (user) => {
+    return database.oneOrNone('select * from users where email = $1 and password = $2', [user.email, user.password])
+}
+
+exports.loginUser = (user) => {
+    return database.query('select * from users where email = $1 and password = $2', [user.email, user.password])
 }
 
 exports.saveUser = (user) => {
