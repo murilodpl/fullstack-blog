@@ -6,5 +6,5 @@ create table he4rtbackend.users (
     password text not null
 );
 
-insert into he4rtbackend.users
+insert into he4rtbackend.users (email, password) 
 values ('murilo@gmail.com', 'admin');
