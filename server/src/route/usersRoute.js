@@ -2,22 +2,22 @@ const express = require('express')
 const router = express.Router()
 const usersService = require('../service/usersService')
 
-router.get('/users', async (req, res) => {
-    const users = await usersService.getUsers()
-    res.json(users)
+router.get('/users', async (req, res, next) => {
+    try {
+        const users = await usersService.getUsers()
+        res.json(users)
+    } catch (e) {
+        next(e)
+    }
 })
 
-router.post('/users', async (req, res) => {
+router.post('/users', async (req, res, next) => {
     const user = req.body
     try {
         const newUser = await usersService.saveUser(user)
         res.status(201).json(newUser)
     } catch (e) {
-        if (e.message === 'User already exists') {
-            res.status(409).send(e.message)
-        } else {
-            res.status(500).send(e.message)
-        }
+        next(e)
     }
 })
 
