@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   // Variable
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
 
   // Function
   function handleTransition() {
