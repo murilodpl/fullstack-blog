@@ -7,9 +7,20 @@ export default function Register(props) {
         email: "",
         password: ""
     })
+    const [check, setCheck] = useState({
+        email: false,
+        password: false,
+        isDuplicate: false
+    })
 
     // Function
     function handleChange(e) {
+        setCheck({
+            email: false,
+            password: false,
+            isDuplicate: false
+        })
+
         let { name, value } = e.target
 
         setFormData(prevData => ({
@@ -21,26 +32,42 @@ export default function Register(props) {
     function registerUser(e) {
         e.preventDefault()
 
-        if (formData.email == "" || formData.password == "") return console.log('Fill in all required fields')
+        // If filled
+        if (formData.email == "") {
+            return setCheck(prevCheck => ({ ...prevCheck, email: true }))
+        } else {
+            setCheck(prevCheck => ({ ...prevCheck, email: false }))
+        }
+
+        if (formData.password == "") {
+            return setCheck(prevCheck => ({ ...prevCheck, password: true }))
+        } else {
+            setCheck(prevCheck => ({ ...prevCheck, password: false }))
+        }
 
         api.post("/users", formData)
-            .then(res => console.log(res.data))
+            .then(res => {
+                if (res.data.status === 201) {
+                    console.log("Cadastrado com sucesso!")
+                    // console.log(res.data)
+                } else {
+                    setCheck(prevCheck => ({ ...prevCheck, isDuplicate: true }))
+                }
+            })
             .catch(err => console.log(err))
     }
 
-    // Logs
-    // console.log(formData)
-
     return (
-        <div>
-            <h1>Criar Conta</h1>
+        <div className="registerFrame">
+            <h1 className="text-white">Criar Conta</h1>
 
             <form name="registerForm" id="registerForm">
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
-                <input type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
-                <div className="btnDiv">
+                <input className={`${(check.email || check.isDuplicate) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
+                <input className={`${(check.password || check.isDuplicate) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                {(check.isDuplicate) && <p className="text-red-500">Email já cadastrado...</p>}
+                <div className="btnDiv text-white">
                     <span>Já possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
-                    <input type="submit" onClick={registerUser} value="Registrar" />
+                    <input className="btnRegister" type="submit" onClick={registerUser} value="Registrar" />
                 </div>
             </form>
         </div>
