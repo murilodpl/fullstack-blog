@@ -51,11 +51,12 @@ export default function Login(props) {
         api.post("/login", formData)
             .then(res => {
                 if (res.data.status === 200) {
-                    console.log("Logado com sucesso! " + res.data)
+                    console.log("Logado com sucesso!")
+                    // console.log(res.data)
 
                     navigate("dashboard", {
                         state: {
-                            ...formData
+                            ...res.data[0]
                         }
                     });
                 } else {
@@ -71,7 +72,7 @@ export default function Login(props) {
 
             <form name="loginForm" id="loginForm">
                 <input className={`${(check.email || check.wrongLogin) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
-                <input className={`${(check.password || check.wrongLogin) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                <input className={`${(check.password || check.wrongLogin) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Digite a sua senha..." required />
                 {(check.wrongLogin) && <p className="text-red-500">Email ou senha errado...</p>}
                 <div className="btnDiv">
                     <span>Ainda não possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>

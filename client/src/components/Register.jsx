@@ -5,7 +5,8 @@ export default function Register(props) {
     // Variable
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
+        password: "",
+        name: ""
     })
     const [check, setCheck] = useState({
         email: false,
@@ -39,13 +40,19 @@ export default function Register(props) {
             setCheck(prevCheck => ({ ...prevCheck, email: false }))
         }
 
+        if (formData.name == "") {
+            return setCheck(prevCheck => ({ ...prevCheck, name: true }))
+        } else {
+            setCheck(prevCheck => ({ ...prevCheck, name: false }))
+        }
+
         if (formData.password == "") {
             return setCheck(prevCheck => ({ ...prevCheck, password: true }))
         } else {
             setCheck(prevCheck => ({ ...prevCheck, password: false }))
         }
 
-        api.post("/users", formData)
+        api.post("/register", formData)
             .then(res => {
                 if (res.data.status === 201) {
                     console.log("Cadastrado com sucesso!")
@@ -63,7 +70,8 @@ export default function Register(props) {
 
             <form name="registerForm" id="registerForm">
                 <input className={`${(check.email || check.isDuplicate) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
-                <input className={`${(check.password || check.isDuplicate) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.pass} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                <input className={`${(check.name || check.isDuplicate) && 'border-red-500'}`} type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Digite o seu nome..." required />
+                <input className={`${(check.password || check.isDuplicate) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Digite a sua senha..." required />
                 {(check.isDuplicate) && <p className="text-red-500">Email já cadastrado...</p>}
                 <div className="btnDiv text-white">
                     <span>Já possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
