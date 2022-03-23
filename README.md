@@ -7,8 +7,9 @@ Backend, com a integração do login e do registro.
 ## Technologies
 
 ### Frontend
--   ReactJS
 -   Vite
+-   ReactJS
+-   React Router
 -   Axios
 -   Tailwind CSS
 
@@ -16,6 +17,7 @@ Backend, com a integração do login e do registro.
 -   Node
 -   ExpressJS
 -   PostgreSQL
+-   CORS
 -   Axios
 -   Jest
 
