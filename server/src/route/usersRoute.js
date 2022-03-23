@@ -21,7 +21,7 @@ router.post('/users', async (req, res, next) => {
     }
 })
 
-router.get('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
     const user = req.body
     try {
         const loginUser = await usersService.loginUser(user)
