@@ -30,6 +30,7 @@ form {
 }
 
 input[type="email"],
+input[type="text"],
 input[type="password"] {
     @apply h-10 mb-3 px-3 shadow rounded-full border border-b-2 focus-visible:outline-none focus-visible:border-gray-600;
 }
@@ -43,9 +44,9 @@ input[type="password"] {
 }
 
 .btnLogin {
-    @apply cursor-pointer rounded-full py-1 px-2 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
+    @apply cursor-pointer rounded-full py-1 px-4 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
 }
 
 .btnRegister {
-    @apply cursor-pointer rounded-full py-1 px-2 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
+    @apply cursor-pointer rounded-full py-1 px-4 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
 }
