@@ -23,7 +23,7 @@ export default function Login(props) {
 
         if (formData.email == "" || formData.password == "") return console.log('Fill in all required fields')
 
-        api.get("/login", formData)
+        api.post("/login", formData)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
