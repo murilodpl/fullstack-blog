@@ -1,20 +1,14 @@
-import Register from "./components/Register";
-import Login from "./components/Login";
-import { useState } from "react";
+import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
-  // Variable
-  const [login, setLogin] = useState(false)
-
-  // Function
-  function handleTransition() {
-    setLogin(prevLogin => !prevLogin)
-  }
-
   return (
-    login ?
-      <Login handleTransition={handleTransition} />
-      :
-      <Register handleTransition={handleTransition} />
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </div >
   )
 }
