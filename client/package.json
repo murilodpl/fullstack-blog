@@ -6,13 +6,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-		"production": "tailwindcss -i ./src/css/style.css -o ./src/css/style.min.css --postcss --minify",
-		"watch": "tailwindcss -i ./src/css/style.css -o ./src/css/style.min.css --postcss --watch"
+    "production": "tailwindcss -i ./src/css/style.css -o ./src/css/style.min.css --postcss --minify",
+    "watch": "tailwindcss -i ./src/css/style.css -o ./src/css/style.min.css --postcss --watch"
   },
   "dependencies": {
     "axios": "^0.26.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
