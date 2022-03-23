@@ -4,7 +4,7 @@
 
 html,
 body {
-    @apply flex justify-center items-center h-full;
+    @apply flex justify-center items-center h-full bg-light;
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
 }
 
 .registerFrame {
-    @apply bg-dark border-4 border-white;
+    @apply bg-dark border-4 border-black;
 }
 
 /* Forms */
