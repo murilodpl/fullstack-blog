@@ -10,10 +10,10 @@ exports.loginUser = async (user) => {
     return usersData.loginUser(user)
 }
 
-exports.saveUser = async (user) => {
+exports.registerUser = async (user) => {
     const existingUser = await usersData.getUserByEmail(user.email)
     if (existingUser) throw new Error('User already exists')
-    return usersData.saveUser(user)
+    return usersData.registerUser(user)
 }
 
 exports.deleteUser = (id) => {

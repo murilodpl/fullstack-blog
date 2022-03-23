@@ -11,10 +11,10 @@ router.get('/users', async (req, res, next) => {
     }
 })
 
-router.post('/users', async (req, res, next) => {
+router.post('/register', async (req, res, next) => {
     const user = req.body
     try {
-        const newUser = await usersService.saveUser(user)
+        const newUser = await usersService.registerUser(user)
         res.status(201).json({ status: 201, ...newUser })
     } catch (e) {
         next(e)

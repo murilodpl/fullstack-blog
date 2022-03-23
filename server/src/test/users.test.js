@@ -11,9 +11,9 @@ const request = (url, method, data) => {
 }
 
 test('Should get users', async () => {
-    const user1 = await usersService.saveUser({ email: generate(), password: generate() })
-    const user2 = await usersService.saveUser({ email: generate(), password: generate() })
-    const user3 = await usersService.saveUser({ email: generate(), password: generate() })
+    const user1 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
+    const user2 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
+    const user3 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
     const response = await request('http://localhost:8080/users', 'get')
     expect(response.status).toBe(200)
     const users = response.data
@@ -24,8 +24,8 @@ test('Should get users', async () => {
 })
 
 test('Should save a user', async () => {
-    const data = { email: generate(), password: generate() }
-    const response = await request('http://localhost:8080/users', 'post', data)
+    const data = { email: generate(), password: generate(), name: generate() }
+    const response = await request('http://localhost:8080/register', 'post', data)
     expect(response.status).toBe(201)
     const user = response.data
     expect(user.email).toBe(data.email)
@@ -34,26 +34,26 @@ test('Should save a user', async () => {
 })
 
 test('Should NOT save a user', async () => {
-    const data = { email: generate(), password: generate() }
-    const response1 = await request('http://localhost:8080/users', 'post', data)
-    const response2 = await request('http://localhost:8080/users', 'post', data)
+    const data = { email: generate(), password: generate(), name: generate() }
+    const response1 = await request('http://localhost:8080/register', 'post', data)
+    const response2 = await request('http://localhost:8080/register', 'post', data)
     expect(response2.status).toBe(409)
     const user = response1.data
     await usersService.deleteUser(user.id)
 })
 
 test('Should get a user by email/pass', async () => {
-    const data = { email: generate(), password: generate() }
-    const user = await usersService.saveUser(data)
+    const data = { email: generate(), password: generate(), name: generate() }
+    const user = await usersService.registerUser(data)
 
-    const response = await request('http://localhost:8080/login', 'get', data)
+    const response = await request('http://localhost:8080/login', 'post', data)
     expect(response.status).toBe(200)
 
     await usersService.deleteUser(user.id)
 })
 
 test('Should NOT get a user by email/pass', async () => {
-    const data = { email: generate(), password: generate() }
-    const response = await request('http://localhost:8080/login', 'get', data)
+    const data = { email: generate(), password: generate(), name: generate() }
+    const response = await request('http://localhost:8080/login', 'post', data)
     expect(response.status).toBe(403)
 })
