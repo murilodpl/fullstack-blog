@@ -1,38 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-    margin: 1rem;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    @apply flex justify-center items-center h-full;
+}
+
+h1 {
+    @apply text-2xl lg:text-3xl font-bold;
+}
+
+.registerFrame,
+.loginFrame {
+    @apply py-12 px-6 w-full md:w-[600px] mx-auto shadow-xl;
+}
+
+.loginFrame {
+    @apply bg-white text-dark border-4 border-dark;
+}
+
+.registerFrame {
+    @apply bg-dark border-4 border-white;
 }
 
 /* Forms */
 form {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+    @apply flex flex-col mt-10;
 }
 
-input[type='email'],
-input[type='password'] {
-    height: 2rem;
-    margin-bottom: .75rem;
-    border-radius: 9999px;
-    padding: 0 .75rem;
-    border: 1px solid #000;
+input[type="email"],
+input[type="password"] {
+    @apply h-10 mb-3 px-3 shadow rounded-full border border-b-2 focus-visible:outline-none focus-visible:border-gray-600;
 }
 
 .btnDiv {
-    display: flex;
-    justify-content: space-between;
+    @apply flex justify-between items-center mt-4;
 }
 
-.btnDiv span a {
-    cursor: pointer;
-    text-decoration: underline;
+.btnDiv a {
+    @apply cursor-pointer underline transition-all hover:text-blue-500;
 }
 
-.btnDiv span a:hover {
-    color: red;
+.btnLogin {
+    @apply cursor-pointer rounded-full py-1 px-2 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
+}
+
+.btnRegister {
+    @apply cursor-pointer rounded-full py-1 px-2 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
 }
