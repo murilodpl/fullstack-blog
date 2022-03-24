@@ -12,7 +12,10 @@ export default function Login(props) {
     const [check, setCheck] = useState({
         email: false,
         password: false,
-        wrongLogin: false
+        wrongLogin: false,
+        err: false,
+        isLoading: false,
+        success: false
     })
 
     // Function
@@ -20,7 +23,9 @@ export default function Login(props) {
         setCheck({
             email: false,
             password: false,
-            wrongLogin: false
+            wrongLogin: false,
+            err: false,
+            isLoading: false
         })
 
         let { name, value } = e.target
@@ -47,23 +52,29 @@ export default function Login(props) {
             setCheck(prevCheck => ({ ...prevCheck, password: false }))
         }
 
+        setCheck(prevCheck => ({ ...prevCheck, isLoading: true, err: false }))
+
         // API check if user exist
         api.post("/login", formData)
             .then(res => {
                 if (res.data.status === 200) {
-                    console.log("Logado com sucesso!")
                     // console.log(res.data)
+                    setCheck(prevCheck => ({ ...prevCheck, isLoading: false, success: true }))
 
-                    navigate("dashboard", {
-                        state: {
-                            ...res.data[0]
-                        }
-                    });
+                    setTimeout(() => {
+                        navigate("dashboard", {
+                            state: {
+                                ...res.data[0]
+                            }
+                        });
+                    }, 1000);
                 } else {
-                    setCheck(prevCheck => ({ ...prevCheck, wrongLogin: true }))
+                    setCheck(prevCheck => ({ ...prevCheck, success: false, isLoading: false, wrongLogin: true }))
                 }
             })
-            .catch(err => console.log(err))
+            .catch(error => {
+                setCheck(prevCheck => ({ ...prevCheck, success: false, isLoading: false, err: true }))
+            })
     }
 
     return (
@@ -73,7 +84,13 @@ export default function Login(props) {
             <form name="loginForm" id="loginForm">
                 <input className={`${(check.email || check.wrongLogin) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
                 <input className={`${(check.password || check.wrongLogin) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Digite a sua senha..." required />
+
                 {(check.wrongLogin) && <p className="text-red-500">Email ou senha errado...</p>}
+                {(check.err) && <p className="text-red-500">Ocorreu algum erro, tente novamente mais tarde.</p>}
+                {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+                {(check.success) && <p className="text-green-500">Logado com sucesso!</p>}
+
+
                 <div className="btnDiv">
                     <span>Ainda não possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
                     <input className="btnLogin" type="submit" onClick={loginUser} value="Entrar" />
