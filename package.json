@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env node"
+    "test": "jest --env node",
+    "build:ui": "rm -rf dist && cd ./client && npm run build --prod && cp -r dist ../"
   },
   "author": "Murilo",
   "license": "ISC",
