@@ -1,10 +1,6 @@
+const connectionString = 'postgres://postgres:1234@localhost:5432/he4rtbackend'
+
 const pgp = require('pg-promise')()
-const db = pgp({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'he4rtbackend',
-    password: '1234',
-    port: 5432,
-})
+const db = pgp({connectionString: process.env.DATABASE_URL || connectionString})
 
 module.exports = db
