@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-    @apply flex justify-center items-center h-full bg-light;
+html, body, #root, .App, .home {
+    @apply w-full h-full;
 }
 
 h1 {
     @apply text-2xl lg:text-3xl font-bold;
+}
+
+.home {
+    @apply flex items-center;
 }
 
 .registerFrame,
@@ -21,7 +24,7 @@ h1 {
 }
 
 .registerFrame {
-    @apply bg-dark border-4 border-black;
+    @apply bg-dark border-4 border-white;
 }
 
 /* Forms */
@@ -36,7 +39,7 @@ input[type="password"] {
 }
 
 .btnDiv {
-    @apply flex justify-between items-center mt-4;
+    @apply flex justify-between flex-col lg:flex-row text-center lg:text-left items-center mt-4;
 }
 
 .btnDiv a {
@@ -44,9 +47,100 @@ input[type="password"] {
 }
 
 .btnLogin {
-    @apply cursor-pointer rounded-full py-1 px-4 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
+    @apply mt-4 lg:mt-0 cursor-pointer rounded-full py-1 px-4 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
 }
 
 .btnRegister {
-    @apply cursor-pointer rounded-full py-1 px-4 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
+    @apply mt-4 lg:mt-0 cursor-pointer rounded-full py-1 px-4 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
+}
+
+
+/* Loading */
+.lds-roller {
+    @apply inline-block relative w-[80px] h-[80px];
+    -webkit-transform: scale(.5);
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    @apply block absolute w-[7px] h-[7px] rounded-[50%] bg-white -mt-1 -ml-1;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    @apply top-[63px] left-[63px];
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    @apply top-[68px] left-[56px];
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    @apply top-[71px] left-[48px];
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    @apply top-[72px] left-[40px];
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    @apply top-[71px] left-[32px];
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    @apply top-[68px] left-[24px];
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    @apply top-[63px] left-[17px];
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    @apply top-[56px] left-[12px];
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
