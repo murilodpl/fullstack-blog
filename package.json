@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env node",
-    "build:ui": "cd ./client && npm run build"
+    "start": "cd ./client && npm run build && node ../index.js"
   },
   "author": "Murilo",
   "license": "ISC",
