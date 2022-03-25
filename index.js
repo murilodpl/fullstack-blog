@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 8080
 const cors = require('cors')
+const serveStatic = require('serve-static')
 
 app.use(cors())
 app.use(express.json())
+app.use(serveStatic(__dirname + '/client/dist'))
 
 app.use('/', require('./src/route/usersRoute'))
 app.use((error, req, res, next) => {
