@@ -14,7 +14,7 @@ test('Should get users', async () => {
     const user1 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
     const user2 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
     const user3 = await usersService.registerUser({ email: generate(), password: generate(), name: generate() })
-    const response = await request('http://localhost:8080/users', 'get')
+    const response = await request('https://he4rtlabs-challenges-03.herokuapp.com/users', 'get')
     expect(response.status).toBe(200)
     const users = response.data
     expect(users).toHaveLength(3)
@@ -25,7 +25,7 @@ test('Should get users', async () => {
 
 test('Should save a user', async () => {
     const data = { email: generate(), password: generate(), name: generate() }
-    const response = await request('http://localhost:8080/register', 'post', data)
+    const response = await request('https://he4rtlabs-challenges-03.herokuapp.com/register', 'post', data)
     expect(response.status).toBe(201)
     const user = response.data
     expect(user.email).toBe(data.email)
@@ -35,8 +35,8 @@ test('Should save a user', async () => {
 
 test('Should NOT save a user', async () => {
     const data = { email: generate(), password: generate(), name: generate() }
-    const response1 = await request('http://localhost:8080/register', 'post', data)
-    const response2 = await request('http://localhost:8080/register', 'post', data)
+    const response1 = await request('https://he4rtlabs-challenges-03.herokuapp.com/register', 'post', data)
+    const response2 = await request('https://he4rtlabs-challenges-03.herokuapp.com/register', 'post', data)
     expect(response2.status).toBe(409)
     const user = response1.data
     await usersService.deleteUser(user.id)
@@ -46,7 +46,7 @@ test('Should get a user by email/pass', async () => {
     const data = { email: generate(), password: generate(), name: generate() }
     const user = await usersService.registerUser(data)
 
-    const response = await request('http://localhost:8080/login', 'post', data)
+    const response = await request('https://he4rtlabs-challenges-03.herokuapp.com/login', 'post', data)
     expect(response.status).toBe(200)
 
     await usersService.deleteUser(user.id)
@@ -54,6 +54,6 @@ test('Should get a user by email/pass', async () => {
 
 test('Should NOT get a user by email/pass', async () => {
     const data = { email: generate(), password: generate(), name: generate() }
-    const response = await request('http://localhost:8080/login', 'post', data)
+    const response = await request('https://he4rtlabs-challenges-03.herokuapp.com/login', 'post', data)
     expect(response.status).toBe(403)
 })
