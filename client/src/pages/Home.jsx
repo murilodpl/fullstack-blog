@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   return (
-    <div className="h-full w-full relative">
+    <div className="h-full w-full relative p-4">
       <AnimatePresence exitBeforeEnter>
         <motion.div className="home absolute top-0 left-0 -z-10"
           key={login}
