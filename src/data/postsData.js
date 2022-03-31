@@ -5,7 +5,7 @@ exports.getPosts = () => {
 }
 
 exports.registerPost = (post) => {
-    return database.one('insert into posts (title, content) values ($1, $2) returning *', [post.title, post.content])
+    return database.one('insert into posts (title, content, author) values ($1, $2, $3) returning *', [post.title, post.content, post.author])
 }
 
 exports.deletePost = (id) => {
