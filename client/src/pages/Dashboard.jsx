@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import Header from "../components/Header";
 
 
 export default function Dashboard() {
@@ -6,10 +7,14 @@ export default function Dashboard() {
     const { state } = useLocation(); // state { id: int, email: string, name: string, password: string, admin: boolean }
 
     return (
-        <div className="h-full flex flex-col justify-center items-center p-4">
-            <h1>Bem-vindo {state.name}</h1>
-            <p>Email: {state.email}</p>
-            <p>Admin: {state.admin ? "Sim" : "Não"}</p>
+        <div className="h-full">
+            <Header user={state} />
+
+            <div className="container">
+                <h2 className="text-primary mb-4">Blog</h2>
+
+                
+            </div>
         </div>
     )
 }
