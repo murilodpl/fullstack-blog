@@ -12,7 +12,7 @@ exports.loginUser = async (user) => {
 
 exports.registerUser = async (user) => {
     const existingUser = await usersData.getUserByEmail(user.email)
-    if (existingUser) throw new Error('User already exists')
+    if (existingUser) throw new Error('Already exists')
     return usersData.registerUser(user)
 }
 
