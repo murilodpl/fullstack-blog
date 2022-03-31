@@ -59,7 +59,7 @@ export default function Register(props) {
 
         setCheck(prevCheck => ({ ...prevCheck, isLoading: true, err: false }))
 
-        api.post("/register", formData)
+        api.post("/users/register", formData)
             .then(res => {
                 if (res.data.status === 201) {
                     // console.log(res.data)

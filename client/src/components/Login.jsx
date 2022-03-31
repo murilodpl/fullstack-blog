@@ -55,7 +55,7 @@ export default function Login(props) {
         setCheck(prevCheck => ({ ...prevCheck, isLoading: true, err: false }))
 
         // API check if user exist
-        api.post("/login", formData)
+        api.post("/users/login", formData)
             .then(res => {
                 if (res.data.status === 200) {
                     // console.log(res.data)
