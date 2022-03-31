@@ -10,6 +10,14 @@ h1 {
     @apply text-2xl lg:text-3xl font-bold;
 }
 
+h2 {
+    @apply text-xl lg:text-2xl font-bold;
+}
+
+h3 {
+    @apply text-lg lg:text-xl font-bold;
+}
+
 .home {
     @apply flex items-center;
 }
