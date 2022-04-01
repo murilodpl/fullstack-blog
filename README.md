@@ -1,4 +1,5 @@
 # Projeto FullStack - Blog com área de login
+Um projeto com um formulário inicial para entrar ou criar sua conta, juntamente com um sistema de blog, aonde podemos cadastrar/editar/excluir postagens.
 
 ## Projeto Inicial:
 ### Projeto 003 - Formulário Único
