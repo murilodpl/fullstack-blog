@@ -20,8 +20,9 @@ export default function Home(props) {
                 })
                 .catch(error => {
                     console.log(error)
-                })
-            setIsLoading(false)
+                }).finally(() => {
+                    setIsLoading(false)
+                });
         }
         getPosts();
 

@@ -5,7 +5,8 @@ import api from "../services/api"
 
 export default function Home(props) {
     // Variables
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([])
+    const [removePost, setRemovePost] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
     // Get posts
@@ -13,7 +14,7 @@ export default function Home(props) {
         setIsLoading(true)
 
         async function getPosts() {
-            if(!props.user){
+            if (!props.user) {
                 return console.log(props)
             }
             await api.get(`/posts/getAll/${props.user.id}`)
@@ -24,14 +25,16 @@ export default function Home(props) {
                 .catch(error => {
                     console.log(error)
                 })
-            setIsLoading(false)
+                .finally(() => {
+                    setIsLoading(false)
+                });
         }
         getPosts();
 
         return () => setIsLoading(false);
-    }, [])
+    }, [removePost])
 
-    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} />) : "Não tem post"
+    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} setRemovePost={setRemovePost} />) : "Não tem post"
 
     return (
         <div className="h-full">
