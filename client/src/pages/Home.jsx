@@ -1,46 +1,45 @@
-import Register from "../components/Register";
-import Login from "../components/Login";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Post from "../components/Post";
+import api from "../services/api"
 
-export default function Home() {
-  // Variable
-  const [login, setLogin] = useState(true)
-  const variantsBg = {
-    login: { backgroundColor: '#f2f2f2', scaleY: 1 },
-    register: { backgroundColor: '#1a1b1e', scaleY: 1 },
-  }
+export default function Home(props) {
+    // Variables
+    const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
 
-  // Function
-  function handleTransition() {
-    setLogin(prevLogin => !prevLogin)
-  }
+    // Get posts
+    useEffect(() => {
+        setIsLoading(true)
 
-  return (
-    <div className="h-full w-full relative p-4">
-      <AnimatePresence exitBeforeEnter>
-        <motion.div className="home absolute top-0 left-0 -z-10"
-          key={login}
-          style={{ transformOrigin: 'top' }}
-          variants={variantsBg}
-          initial={{ scaleY: 0 }}
-          animate={login ? 'login' : 'register'}
-          transition={{ type: "tween", stiffness: 100, duration: .5 }}
-        />
-      </AnimatePresence>
+        async function getPosts() {
+            await api.get("/posts/getAll")
+                .then(res => {
+                    // console.log(res)
+                    setPosts(res.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            setIsLoading(false)
+        }
+        getPosts();
 
-      <motion.div className="home"
-        key={login}
-        initial={{ opacity: 0, delay: 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ type: "Inertia", stiffness: 100, duration: .75 }}
-      >
-        {login ?
-          <Login handleTransition={handleTransition} />
-          :
-          <Register handleTransition={handleTransition} />}
-      </motion.div>
-    </div>
-  )
+        return () => setIsLoading(false);
+    }, [])
+
+    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} />) : "Não tem post"
+
+    return (
+        <div className="h-full">
+            <Header user={props.user} />
+
+            <div className="container">
+                <h2 className="text-primary mb-4">Blog</h2>
+
+                {(isLoading) ? 'Loading...'
+                    : (posts) && postsElement}
+            </div>
+        </div>
+    )
 }
