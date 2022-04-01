@@ -6,7 +6,7 @@ const serveStatic = require('serve-static')
 
 app.use(cors())
 app.use(express.json())
-// app.use(serveStatic(__dirname + '/client/dist'))
+app.use(serveStatic(__dirname + '/client/dist'))
 
 app.use('/users', require('./src/route/usersRoute'))
 app.use('/posts', require('./src/route/postsRoute'))
