@@ -5,22 +5,22 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [user, setUser] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user")) || [""];
   const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("user") == null) {
       return navigate("/login");
-    } else {
-      setUser(JSON.parse(localStorage.getItem("user"))[0])
     }
-  }, [window.location.href]);
+  }, [window.location.href])
+
+  // console.log(user[0])
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/myposts" element={<MyPosts user={user} />} />
+        <Route path="/" element={<Home user={user[0]} />} />
+        <Route path="/myposts" element={<MyPosts user={user[0]} />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div >

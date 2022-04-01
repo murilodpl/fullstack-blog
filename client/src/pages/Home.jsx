@@ -35,7 +35,7 @@ export default function Home(props) {
             <Header user={props.user} />
 
             <div className="container">
-                <h2 className="text-primary mb-4">Blog</h2>
+                <h2 className="text-primary">Blog</h2>
 
                 {(isLoading) ? 'Loading...'
                     : (posts) && postsElement}
