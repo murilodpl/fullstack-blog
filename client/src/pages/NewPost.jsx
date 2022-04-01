@@ -80,7 +80,7 @@ export default function NewPost(props) {
             <Header user={props.user} />
 
             <div className="container">
-                <h2 className="text-primary">New Post</h2>
+                <h2 className="pageTitle">New Post</h2>
 
                 <form className="mt-4" name="registerPost" id="registerPost">
                     <label htmlFor="title">Title:</label>

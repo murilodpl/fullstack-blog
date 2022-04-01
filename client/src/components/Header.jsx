@@ -17,7 +17,7 @@ export default function Header(props) {
             <nav className="px-2 sm:px-4 py-2.5 rounded">
                 <div className="container flex flex-wrap justify-between items-center py-6 mx-auto">
                     <div className="flex">
-                        <h1 className="text-md md:text-xl font-bold mr-auto text-primary self-center">Welcome {props.user.name}!</h1>
+                        <h1 className="text-md md:text-xl font-bold mr-auto text-primary self-center">Welcome, {props.user.name}{props.user.admin && ' (Admin)'}!</h1>
                     </div>
 
                     <div className="md:hidden flex items-center">
@@ -29,7 +29,7 @@ export default function Header(props) {
                     </div>
 
                     <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
-                        <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                        <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm">
                             <li>
                                 <NavLink to="/" className="navItem" >Home</NavLink>
                             </li>
@@ -49,10 +49,10 @@ export default function Header(props) {
                             <NavLink to="/" className="navItem" onClick={menuBtnClick} >Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="philosopher" className="navItem" onClick={menuBtnClick} >Philosopher</NavLink>
+                            <NavLink to="/myposts" className="navItem" onClick={menuBtnClick} >My Posts</NavLink>
                         </li>
                         <li>
-                            <NavLink to="search" className="navItem" onClick={menuBtnClick} >Search</NavLink>
+                            <NavLink to="/login" className="navItem" onClick={menuBtnClick} >Logout</NavLink>
                         </li>
                     </ul>
                 </div>

@@ -18,6 +18,10 @@ h3 {
     @apply text-lg lg:text-xl font-bold;
 }
 
+.pageTitle { 
+    @apply text-primary border-b-2 border-purple-200 pb-4;
+}
+
 .home {
     @apply flex items-center;
 }
@@ -35,15 +39,37 @@ h3 {
     @apply bg-dark border-4 border-white;
 }
 
+/* Navbar */
+header nav ul li .navItem {
+    @apply block py-2 pr-4 pl-3 text-base border-b border-primary md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0;
+}
+
+header nav ul li .navItem.active {
+    @apply block py-2 pr-4 pl-3 text-white bg-primary md:bg-transparent md:text-primary md:p-0 font-bold;
+}
+
+header nav .mobile-menu {
+    @apply border border-primary rounded;
+}
+
 /* Forms */
 form {
     @apply flex flex-col mt-10;
 }
 
-input[type="email"],
-input[type="text"],
-input[type="password"] {
+.login input[type="email"],
+.login input[type="text"],
+.login input[type="password"] {
     @apply h-10 mb-3 px-3 shadow rounded-full border border-b-2 focus-visible:outline-none focus-visible:border-gray-600;
+}
+
+#registerPost input,
+#registerPost textarea {
+    @apply mb-3 p-3 shadow border border-b-2 focus-visible:outline-none focus-visible:border-gray-600;
+}
+
+#registerPost .btnPost {
+    @apply mt-4 cursor-pointer py-1 px-4 bg-dark text-white border border-transparent transition-all hover:bg-white hover:text-dark hover:border-dark hover:transition-all;
 }
 
 .btnDiv {
@@ -61,7 +87,6 @@ input[type="password"] {
 .btnRegister {
     @apply mt-4 lg:mt-0 cursor-pointer rounded-full py-1 px-4 bg-white text-dark border border-transparent transition-all hover:bg-dark hover:text-white hover:border-white hover:transition-all;
 }
-
 
 /* Loading */
 .lds-roller {

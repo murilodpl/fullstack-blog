@@ -42,8 +42,8 @@ export default function Home(props) {
             <Header user={props.user} />
 
             <div className="container">
-                <div className="flex justify-between items-center">
-                    <h2 className="text-primary">My Posts</h2>
+                <div className="flex justify-between items-center   pageTitle">
+                    <h2>My Posts</h2>
                     <NavLink to="/newPost" className="p-1 text-green-500 border border-green-500 transition-all hover:bg-green-500 hover:text-white" >New Post</NavLink>
                 </div>
 

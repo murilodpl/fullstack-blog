@@ -7,7 +7,7 @@ export default function Home(props) {
     // Variables
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
-
+console.log(props.user.admin)
     // Get posts
     useEffect(() => {
         setIsLoading(true)
@@ -29,14 +29,14 @@ export default function Home(props) {
         return () => setIsLoading(false);
     }, [])
 
-    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} />) : "Não tem post"
+    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} admin={props.user.admin} post={post} />) : "Não tem post"
 
     return (
         <div className="h-full">
             <Header user={props.user} />
 
             <div className="container">
-                <h2 className="text-primary">Blog</h2>
+                <h2 className="pageTitle">Blog</h2>
 
                 {(isLoading) ? 'Loading...'
                     : (posts) && postsElement}
