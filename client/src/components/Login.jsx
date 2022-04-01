@@ -60,13 +60,11 @@ export default function Login(props) {
                 if (res.data.status === 200) {
                     // console.log(res.data)
                     setCheck(prevCheck => ({ ...prevCheck, isLoading: false, success: true }))
+                    // store the user in localStorage
+                    localStorage.setItem('user', JSON.stringify(res.data))
 
                     setTimeout(() => {
-                        navigate("dashboard", {
-                            state: {
-                                ...res.data[0]
-                            }
-                        });
+                        navigate("/");
                     }, 1000);
                 } else {
                     setCheck(prevCheck => ({ ...prevCheck, success: false, isLoading: false, wrongLogin: true }))
@@ -74,6 +72,7 @@ export default function Login(props) {
             })
             .catch(error => {
                 setCheck(prevCheck => ({ ...prevCheck, success: false, isLoading: false, err: true }))
+                console.log(error)
             })
     }
 
