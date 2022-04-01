@@ -1,4 +1,8 @@
-# Projeto 003 - Formulário Único
+# Projeto FullStack - Blog com área de login
+Um projeto com um formulário inicial para entrar ou criar sua conta, juntamente com um sistema de blog, aonde podemos cadastrar/editar/excluir postagens.
+
+## Projeto Inicial:
+### Projeto 003 - Formulário Único
 Um desafio para iniciantes, se dividindo em dois projetos:
 
 - Frontend, com o objetivo de criar dois formulários em que a transição entre eles seja feita de forma suave, criando um efeito como se fosse o mesmo formulário.
@@ -6,7 +10,7 @@ Um desafio para iniciantes, se dividindo em dois projetos:
 
 Link para repositório do desafio: https://github.com/he4rtlabs/he4rtlabs-challenges-03
 
-## Technologies
+## Tecnologias
 
 ### Frontend
 -   Vite
@@ -23,16 +27,15 @@ Link para repositório do desafio: https://github.com/he4rtlabs/he4rtlabs-challe
 -   Axios
 -   Jest
 
-## Instructions
+## Instruções
 
-Install dependencies (client/server)
+Instalar as dependências (client/server)
 
 ```bash
 npm i
 ```
 
-
-Run developer mode
+Modo de desenvolvedor
 - Frontend
 ```bash
 npm run dev
