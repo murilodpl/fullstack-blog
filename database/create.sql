@@ -8,10 +8,10 @@ create table he4rtbackend.users (
     admin boolean not null default FALSE
 );
 
-insert into he4rtbackend.users (email, password, name, admin)
+insert into he4rtbackend.users (id, email, password, name, admin)
 values
-    ('murilo@gmail.com', '123', 'Murilo', false),
-    ('admin@gmail.com', '123', 'Admin', true);
+    (1, 'murilo@gmail.com', '123', 'Murilo', false),
+    (2, 'admin@gmail.com', '123', 'Admin', true);
 
 create table he4rtbackend.posts (
     id serial primary key,
