@@ -4,6 +4,10 @@ exports.getPosts = () => {
     return database.query('select * from posts')
 }
 
+exports.getPostsByAuthor = (author) => {
+    return database.query('select * from posts where author = $1', [author])
+}
+
 exports.registerPost = (post) => {
     return database.one('insert into posts (title, content, author) values ($1, $2, $3) returning *', [post.title, post.content, post.author])
 }

@@ -4,6 +4,10 @@ exports.getPosts = () => {
     return postsData.getPosts();
 }
 
+exports.getPostsByAuthor = (author) => {
+    return postsData.getPostsByAuthor(author);
+}
+
 exports.registerPost = async (post) => {
     const existingPost = await postsData.getPostByTitle(post.title)
     if (existingPost) throw new Error("Already exists")

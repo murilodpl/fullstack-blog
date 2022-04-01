@@ -11,6 +11,16 @@ router.get('/getAll', async (req, res, next) => {
     }
 })
 
+router.get('/getAll/:author', async (req, res, next) => {
+    const post = req.params.author
+    try {
+        const posts = await postsService.getPostsByAuthor(post)
+        res.json(posts)
+    } catch (e) {
+        next(e)
+    }
+})
+
 router.post('/register', async (req, res, next) => {
     const post = req.body
     try {
