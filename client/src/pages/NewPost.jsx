@@ -90,10 +90,10 @@ export default function NewPost(props) {
                     <textarea className={`${(check.content || check.isDuplicate) && 'border-red-500'}`} id="content" name="content" value={formData.content} onChange={handleChange} required cols="30" rows="10"></textarea>
 
 
-                    {(check.isDuplicate) && <p className="text-red-500">Título duplicado...</p>}
-                    {(check.err) && <p className="text-red-500">Ocorreu algum erro, tente novamente mais tarde.</p>}
+                    {(check.isDuplicate) && <p className="text-red-500">Duplicate title...</p>}
+                    {(check.err) && <p className="text-red-500">There was an error, please try again later.</p>}
                     {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
-                    {(check.success) && <p className="text-green-500">Cadastrado com sucesso!</p>}
+                    {(check.success) && <p className="text-green-500">Registered successfully!</p>}
 
                     <button className="btnPost" type="submit" onClick={registerPost}>Submit</button>
                 </form>

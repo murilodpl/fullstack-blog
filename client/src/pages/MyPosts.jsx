@@ -35,7 +35,7 @@ export default function Home(props) {
         return () => setIsLoading(false);
     }, [removePost])
 
-    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} myposts={true} setRemovePost={setRemovePost} />) : "Não tem post"
+    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} myposts={true} setRemovePost={setRemovePost} />) : <p className="my-4">Nothing found.</p>
 
     return (
         <div className="h-full">

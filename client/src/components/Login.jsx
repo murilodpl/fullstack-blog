@@ -78,21 +78,21 @@ export default function Login(props) {
 
     return (
         <div className="loginFrame login">
-            <h1>Realizar Login</h1>
+            <h1>Log in</h1>
 
             <form name="loginForm" id="loginForm">
-                <input className={`${(check.email || check.wrongLogin) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
-                <input className={`${(check.password || check.wrongLogin) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                <input className={`${(check.email || check.wrongLogin) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email..." required />
+                <input className={`${(check.password || check.wrongLogin) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Enter your password..." required />
 
-                {(check.wrongLogin) && <p className="text-red-500">Email ou senha errado...</p>}
-                {(check.err) && <p className="text-red-500">Ocorreu algum erro, tente novamente mais tarde.</p>}
+                {(check.wrongLogin) && <p className="text-red-500">Wrong email or password...</p>}
+                {(check.err) && <p className="text-red-500">There was an error, please try again later.</p>}
                 {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
-                {(check.success) && <p className="text-green-500">Logado com sucesso!</p>}
+                {(check.success) && <p className="text-green-500">Successfully logged in!</p>}
 
 
                 <div className="btnDiv">
-                    <span>Ainda não possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
-                    <input className="btnLogin" type="submit" onClick={loginUser} value="Entrar" />
+                    <span>Don't have an account yet? Click <a onClick={props.handleTransition}>here</a></span>
+                    <input className="btnLogin" type="submit" onClick={loginUser} value="Login" />
                 </div>
             </form>
         </div>

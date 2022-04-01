@@ -80,21 +80,21 @@ export default function Register(props) {
 
     return (
         <div className="registerFrame login">
-            <h1 className="text-white">Criar Conta</h1>
+            <h1 className="text-white">Create an account</h1>
 
             <form name="registerForm" id="registerForm">
-                <input className={`${(check.email || check.isDuplicate) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite o seu email..." required />
-                <input className={`${(check.name || check.isDuplicate) && 'border-red-500'}`} type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Digite o seu nome..." required />
-                <input className={`${(check.password || check.isDuplicate) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Digite a sua senha..." required />
+                <input className={`${(check.email || check.isDuplicate) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email..." required />
+                <input className={`${(check.name || check.isDuplicate) && 'border-red-500'}`} type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name..." required />
+                <input className={`${(check.password || check.isDuplicate) && 'border-red-500'}`} type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Enter your password..." required />
 
-                {(check.isDuplicate) && <p className="text-red-500">Email já cadastrado...</p>}
-                {(check.err) && <p className="text-red-500">Ocorreu algum erro, tente novamente mais tarde.</p>}
+                {(check.isDuplicate) && <p className="text-red-500">E-mail already registered...</p>}
+                {(check.err) && <p className="text-red-500">There was an error, please try again later.</p>}
                 {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
-                {(check.success) && <p className="text-green-500">Cadastrado com sucesso!</p>}
+                {(check.success) && <p className="text-green-500">Registered successfully!</p>}
 
                 <div className="btnDiv text-white">
-                    <span>Já possui uma conta? Clique <a onClick={props.handleTransition}>aqui</a></span>
-                    <input className="btnRegister" type="submit" onClick={registerUser} value="Registrar" />
+                    <span>Already have an account? Click <a onClick={props.handleTransition}>here</a></span>
+                    <input className="btnRegister" type="submit" onClick={registerUser} value="Register" />
                 </div>
             </form>
         </div>

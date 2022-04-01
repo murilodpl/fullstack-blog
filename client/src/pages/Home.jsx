@@ -29,7 +29,7 @@ console.log(props.user.admin)
         return () => setIsLoading(false);
     }, [])
 
-    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} admin={props.user.admin} post={post} />) : "Não tem post"
+    const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} admin={props.user.admin} post={post} />) : <p className="my-4">Nothing found.</p>
 
     return (
         <div className="h-full">
