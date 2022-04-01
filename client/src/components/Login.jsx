@@ -77,7 +77,7 @@ export default function Login(props) {
     }
 
     return (
-        <div className="loginFrame">
+        <div className="loginFrame login">
             <h1>Realizar Login</h1>
 
             <form name="loginForm" id="loginForm">

@@ -16,12 +16,13 @@ export default function Post(props) {
     }
 
     return (
-        <div className="border-b py-4 relative">
-            <h3>{props.post.title}</h3>
+        <div className="border-b py-4">
+            <div className="flex justify-between items-center">
+                <h3>{props.post.title}</h3>
+                {(props.myposts) && <button onClick={() => deletePost(props.post.id)} className="p-1 text-red-500 border border-red-500 transition-all hover:bg-red-500 hover:text-white">Deletar</button>}
+            </div>
             <p>{props.post.content}</p>
             <small>{props.post.author}</small>
-
-            <button onClick={() => deletePost(props.post.id)} className="absolute top-0 right-0 m-4 text-red-500 transition-all hover:text-red-700">Deletar</button>
         </div>
     )
 }

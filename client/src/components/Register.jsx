@@ -79,7 +79,7 @@ export default function Register(props) {
     }
 
     return (
-        <div className="registerFrame">
+        <div className="registerFrame login">
             <h1 className="text-white">Criar Conta</h1>
 
             <form name="registerForm" id="registerForm">
