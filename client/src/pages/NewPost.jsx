@@ -92,7 +92,7 @@ export default function NewPost(props) {
 
                     {(check.isDuplicate) && <p className="text-red-500">Duplicate title...</p>}
                     {(check.err) && <p className="text-red-500">There was an error, please try again later.</p>}
-                    {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+                    {(check.isLoading) && <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
                     {(check.success) && <p className="text-green-500">Registered successfully!</p>}
 
                     <button className="btnPost" type="submit" onClick={registerPost}>Submit</button>

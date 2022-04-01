@@ -38,7 +38,7 @@ console.log(props.user.admin)
             <div className="container">
                 <h2 className="pageTitle">Blog</h2>
 
-                {(isLoading) ? 'Loading...'
+                {(isLoading) ? <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
                     : (posts) && postsElement}
             </div>
         </div>

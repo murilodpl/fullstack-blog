@@ -47,7 +47,7 @@ export default function Home(props) {
                     <NavLink to="/newPost" className="p-1 text-green-500 border border-green-500 transition-all hover:bg-green-500 hover:text-white" >New Post</NavLink>
                 </div>
 
-                {(isLoading) ? 'Loading...'
+                {(isLoading) ? <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
                     : (posts) && postsElement}
             </div>
         </div>
