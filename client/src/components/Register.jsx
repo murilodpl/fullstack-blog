@@ -80,7 +80,7 @@ export default function Register(props) {
 
     return (
         <div className="registerFrame login">
-            <h1 className="text-white">Create an account</h1>
+            <h1 className="text-white">Sign up</h1>
 
             <form name="registerForm" id="registerForm">
                 <input className={`${(check.email || check.isDuplicate) && 'border-red-500'}`} type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email..." required />
@@ -94,7 +94,7 @@ export default function Register(props) {
 
                 <div className="btnDiv text-white">
                     <span>Already have an account? Click <a onClick={props.handleTransition}>here</a></span>
-                    <input className="btnRegister" type="submit" onClick={registerUser} value="Register" />
+                    <input className="btnRegister" type="submit" onClick={registerUser} value="Sign up" />
                 </div>
             </form>
         </div>
