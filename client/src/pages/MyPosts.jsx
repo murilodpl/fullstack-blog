@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Post from "../components/Post";
 import api from "../services/api"
 
@@ -38,7 +39,7 @@ export default function Home(props) {
     const postsElement = (posts.length != 0) ? posts.map((post, index) => <Post key={index} post={post} myposts={true} setRemovePost={setRemovePost} />) : <p className="my-4">Nothing found.</p>
 
     return (
-        <div className="h-full">
+        <div className="page">
             <Header user={props.user} />
 
             <div className="container">
@@ -50,6 +51,8 @@ export default function Home(props) {
                 {(isLoading) ? <div className="flex justify-center"><div className="lds-roller invert"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
                     : (posts) && postsElement}
             </div>
+
+            <Footer />
         </div>
     )
 }

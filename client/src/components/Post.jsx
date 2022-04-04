@@ -16,7 +16,7 @@ export default function Post(props) {
     }
 
     return (
-        <div className="border p-4 my-4">
+        <div className="border border-gray-300 p-4 my-4">
             <div className="flex justify-between items-center mb-3">
                 <h3>{props.post.title}</h3>
                 {(props.myposts || props.admin) && <button onClick={() => deletePost(props.post.id)} className="p-1 text-red-500 border border-red-500 transition-all hover:bg-red-500 hover:text-white">Delete</button>}

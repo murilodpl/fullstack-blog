@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import api from "../services/api"
 import { useNavigate } from "react-router-dom";
 
@@ -76,7 +77,7 @@ export default function NewPost(props) {
     }
 
     return (
-        <div className="h-full">
+        <div className="page">
             <Header user={props.user} />
 
             <div className="container">
@@ -98,6 +99,8 @@ export default function NewPost(props) {
                     <button className="btnPost" type="submit" onClick={registerPost}>Submit</button>
                 </form>
             </div>
+            
+            <Footer />
         </div>
     )
 }

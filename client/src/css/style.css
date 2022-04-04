@@ -18,12 +18,16 @@ h3 {
     @apply text-lg lg:text-xl font-bold;
 }
 
-.pageTitle { 
-    @apply text-primary border-b-2 border-purple-200 pb-4;
-}
-
 .home {
     @apply flex items-center;
+}
+
+.page {
+    @apply h-full flex flex-col;
+}
+
+.pageTitle { 
+    @apply text-primary border-b border-primary pb-2 mb-6;
 }
 
 .registerFrame,
