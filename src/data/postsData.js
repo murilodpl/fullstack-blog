@@ -1,7 +1,7 @@
 const database = require('../infra/database')
 
 exports.getPosts = () => {
-    return database.query('select * from posts')
+    return database.query('select * from posts order by id desc')
 }
 
 exports.getPostsByAuthor = (author) => {
