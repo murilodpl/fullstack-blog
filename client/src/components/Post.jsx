@@ -21,7 +21,7 @@ export default function Post(props) {
                 <h3>{props.post.title}</h3>
                 {(props.myposts || props.admin) && <button onClick={() => deletePost(props.post.id)} className="p-1 text-red-500 border border-red-500 transition-all hover:bg-red-500 hover:text-white">Delete</button>}
             </div>
-            <p>{props.post.content}</p>
+            <p className="whitespace-pre-line">{props.post.content}</p>
             <small>{props.post.author}</small>
         </div>
     )
