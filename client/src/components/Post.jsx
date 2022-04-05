@@ -36,7 +36,7 @@ export default function Post(props) {
                 {isReadMore ? " Read more" : " Show less"}
                 </span>}
             </p>
-            <small>{props.post.author}</small>
+            <small>{props.post.name}</small>
         </div>
     )
 }

@@ -1,11 +1,11 @@
 const database = require('../infra/database')
 
 exports.getPosts = () => {
-    return database.query('select * from posts order by id desc')
+    return database.query('select * from posts p inner join users u on u.id = p.author order by p.id desc')
 }
 
 exports.getPostsByAuthor = (author) => {
-    return database.query('select * from posts where author = $1', [author])
+    return database.query('select * from posts p inner join users u on u.id = p.author where author = $1 order by p.id desc', [author])
 }
 
 exports.registerPost = (post) => {
