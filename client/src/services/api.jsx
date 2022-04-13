@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: 'https://he4rtlabs-challenges-03.herokuapp.com/',
+    baseURL: 'https://murilo-fullstack-blog.herokuapp.com/',
     validateStatus: false,
 })
 
