@@ -11,6 +11,11 @@ app.use(serveStatic(__dirname + '/client/dist'))
 app.use('/users', require('./src/route/usersRoute'))
 app.use('/posts', require('./src/route/postsRoute'))
 
+// Default Route
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root: './client/dist' });
+})
+
 app.use((error, req, res, next) => {
     if (error.message === 'Email or password wrong') {
         return res.status(403).send({ status: 403, error: error.message })
