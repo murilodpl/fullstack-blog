@@ -2,7 +2,7 @@ import Home from "./pages/Home"
 import LoginPage from "./pages/LoginPage"
 import MyPosts from "./pages/MyPosts"
 import NewPost from "./pages/NewPost"
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -24,6 +24,7 @@ export default function App() {
         <Route path="/myposts" element={<MyPosts user={user[0]} />} />
         <Route path="/newPost" element={<NewPost user={user[0]} />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div >
   )
