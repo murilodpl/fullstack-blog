@@ -5,15 +5,15 @@ Access the website: https://murilo-fullstack-blog.herokuapp.com/
 <img src="/README/login.png" width="45%"/> <img src="/README/signup.png" width="45%"/> <img src="/README/home.png" width="45%"/> <img src="/README/myposts.png" width="45%"/>
 
 ## Initial Project:
-### Projeto 003 - Formulário Único
-Um desafio para iniciantes, se dividindo em dois projetos:
+### Project 003 - Single Form
+A challenge for beginners, splitting into two projects:
 
-- Frontend, com o objetivo de criar dois formulários em que a transição entre eles seja feita de forma suave, criando um efeito como se fosse o mesmo formulário.
-- Backend, com a integração do login e do registro.
+- Frontend, with the objective of creating two forms in which the transition between them is done smoothly, creating an effect as if it were the same form.
+- Backend, with login and registration integration.
 
-Link para repositório do desafio: https://github.com/he4rtlabs/he4rtlabs-challenges-03
+Link to the repo: https://github.com/he4rtlabs/he4rtlabs-challenges-03
 
-## Tecnologias
+## Technologies
 
 ### Frontend
 -   Vite
@@ -30,15 +30,15 @@ Link para repositório do desafio: https://github.com/he4rtlabs/he4rtlabs-challe
 -   Axios
 -   Jest
 
-## Instruções
+## Instructions
 
-Instalar as dependências (client/server)
+install dependencies (client/server)
 
 ```bash
 npm i
 ```
 
-Modo de desenvolvedor
+Developer mode
 - Frontend
 ```bash
 npm run dev
